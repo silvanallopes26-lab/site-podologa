@@ -1,0 +1,339 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    background-color: white;
+    padding: 20px 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+/* LOGO / NOME */
+
+.logo h1 {
+    margin: 0;
+
+    color: #6b2c83;
+    font-size: 28px;
+}
+
+.logo p {
+    margin: 4px 0 0;
+
+    color: #168c78;
+    font-weight: bold;
+}
+
+
+/* MENU */
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+
+    color: #6b2c83;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #168c78;
+}
+
+
+/* =========================
+   SEÇÃO PRINCIPAL
+========================= */
+
+.hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 60px;
+
+    background: linear-gradient(
+        135deg,
+        #f8f1fa,
+        #eaf8f4
+    );
+}
+
+
+.hero-text {
+    max-width: 600px;
+}
+
+
+.hero h2 {
+    margin-bottom: 20px;
+
+    color: #6b2c83;
+    font-size: 42px;
+}
+
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.6;
+
+    color: #555;
+}
+
+
+/* BOTÃO */
+
+.hero button {
+    margin-top: 20px;
+
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 25px;
+
+    background-color: #6b2c83;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    background-color: #168c78;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SERVIÇOS
+========================= */
+
+.servicos {
+    padding: 70px 60px;
+    background-color: white;
+}
+
+.servicos > h2 {
+    text-align: center;
+
+    margin: 0 0 45px;
+
+    color: #168c78;
+    font-size: 32px;
+}
+
+
+/* CONTAINER DOS CARDS */
+
+.servicos-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+
+/* CARD */
+
+.servico {
+    position: relative;
+
+    padding: 30px 25px;
+
+    background-color: #ffffff;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    border: 1px solid #eee;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+}
+
+
+/* BARRA DECORATIVA */
+
+.servico::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #6b2c83,
+        #168c78
+    );
+
+    border-radius: 18px 18px 0 0;
+}
+
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.servico:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.13);
+}
+
+
+/* TÍTULO DO SERVIÇO */
+
+.servico h3 {
+    margin-top: 10px;
+    margin-bottom: 12px;
+
+    color: #6b2c83;
+
+    font-size: 21px;
+}
+
+
+/* DESCRIÇÃO */
+
+.servico p {
+    margin: 0;
+
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    padding: 30px;
+
+    background-color: #6b2c83;
+
+    color: white;
+
+    text-align: center;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+/* TABLET */
+
+@media (max-width: 800px) {
+
+    header {
+        padding: 20px 30px;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .servicos-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        padding: 40px 30px;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+}
+
+
+/* CELULAR */
+
+@media (max-width: 550px) {
+
+    header {
+        padding: 20px;
+    }
+
+    nav {
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .servicos {
+        padding: 40px 20px;
+    }
+
+    .servicos-container {
+        grid-template-columns: 1fr;
+    }
+
+}
