@@ -1,339 +1,1690 @@
-/* =========================
-   CONFIGURAÇÕES GERAIS
-========================= */
+/* =========================================================
+   SITE DA PODÓLOGA CECÍLIA ROSANA
+   Folha de estilos principal
+   Layout responsivo para computadores, tablets e celulares
+========================================================= */
+
+
+/* =========================================================
+   1. CONFIGURAÇÕES GERAIS
+========================================================= */
+
+:root {
+    --cor-principal: #4a3b32;
+    --cor-secundaria: #8c7a6b;
+    --cor-destaque: #b99b83;
+    --cor-fundo: #fcfbfa;
+    --cor-fundo-bege: #f7f2ed;
+    --cor-texto: #555555;
+    --cor-branco: #ffffff;
+    --cor-whatsapp: #25d366;
+    --cor-whatsapp-hover: #20ba5a;
+
+    --sombra-suave: 0 5px 20px rgba(0, 0, 0, 0.06);
+    --sombra-media: 0 10px 28px rgba(0, 0, 0, 0.10);
+
+    --borda-arredondada: 14px;
+    --transicao: all 0.3s ease;
+
+    --largura-maxima: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    color: #333;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button,
+a {
+    transition: var(--transicao);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--largura-maxima);
+    margin: 0 auto;
+}
+
+section {
+    scroll-margin-top: 95px;
+}
+
+::selection {
+    background-color: var(--cor-destaque);
+    color: var(--cor-branco);
 }
 
 
-/* =========================
-   CABEÇALHO
-========================= */
+/* =========================================================
+   2. CABEÇALHO
+========================================================= */
 
-header {
-    background-color: white;
-    padding: 20px 60px;
+.cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 
+    width: 100%;
+    padding: 15px 5%;
+
+    background-color: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(74, 59, 50, 0.08);
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+}
+
+.cabecalho-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-
-/* LOGO / NOME */
-
-.logo h1 {
-    margin: 0;
-
-    color: #6b2c83;
-    font-size: 28px;
-}
-
-.logo p {
-    margin: 4px 0 0;
-
-    color: #168c78;
-    font-weight: bold;
-}
-
-
-/* MENU */
-
-nav {
-    display: flex;
     gap: 25px;
 }
 
-nav a {
-    text-decoration: none;
 
-    color: #6b2c83;
+/* Logo */
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.logo-destaque {
+    color: var(--cor-principal);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.7rem;
     font-weight: bold;
-
-    transition: 0.3s;
+    line-height: 1.1;
 }
 
-nav a:hover {
-    color: #168c78;
+.logo-subtitulo {
+    margin-top: 4px;
+    color: var(--cor-secundaria);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 3px;
 }
 
 
-/* =========================
-   SEÇÃO PRINCIPAL
-========================= */
+/* Menu de navegação */
 
-.hero {
-    min-height: 500px;
-
+.menu {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
 
-    padding: 60px;
+.menu a {
+    position: relative;
+    padding: 5px 0;
 
-    background: linear-gradient(
-        135deg,
-        #f8f1fa,
-        #eaf8f4
-    );
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.menu a::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 0;
+    height: 2px;
+
+    margin: 0 auto;
+
+    background-color: var(--cor-destaque);
+    content: "";
+
+    transition: width 0.3s ease;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+    color: var(--cor-principal);
+}
+
+.menu a:hover::after,
+.menu a:focus-visible::after {
+    width: 100%;
 }
 
 
-.hero-text {
-    max-width: 600px;
-}
+/* =========================================================
+   3. BOTÕES GERAIS
+========================================================= */
 
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 
-.hero h2 {
-    margin-bottom: 20px;
+    min-height: 46px;
+    padding: 12px 24px;
 
-    color: #6b2c83;
-    font-size: 42px;
-}
+    border: 1px solid transparent;
+    border-radius: 30px;
 
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
 
-.hero p {
-    font-size: 18px;
-    line-height: 1.6;
-
-    color: #555;
-}
-
-
-/* BOTÃO */
-
-.hero button {
-    margin-top: 20px;
-
-    padding: 14px 28px;
-
-    border: none;
-    border-radius: 25px;
-
-    background-color: #6b2c83;
-    color: white;
-
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
 
     cursor: pointer;
-
-    transition: 0.3s;
 }
 
-.hero button:hover {
-    background-color: #168c78;
-
+.botao:hover {
+    background-color: #342820;
+    box-shadow: 0 7px 18px rgba(74, 59, 50, 0.18);
     transform: translateY(-2px);
 }
 
+.botao:focus-visible,
+.menu a:focus-visible,
+.servico-link:focus-visible,
+.rodape a:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 4px;
+}
 
-/* =========================
-   SERVIÇOS
-========================= */
+.botao-cabecalho {
+    min-height: 42px;
+    padding: 10px 19px;
+    background-color: var(--cor-whatsapp);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.botao-cabecalho:hover {
+    background-color: var(--cor-whatsapp-hover);
+}
+
+.botao-secundario {
+    border-color: var(--cor-principal);
+    background-color: transparent;
+    color: var(--cor-principal);
+}
+
+.botao-secundario:hover {
+    background-color: var(--cor-principal);
+    color: var(--cor-branco);
+}
+
+
+/* =========================================================
+   4. TÍTULOS DAS SEÇÕES
+========================================================= */
+
+.secao-subtitulo {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--cor-secundaria);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.secao-cabecalho {
+    max-width: 760px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.secao-cabecalho h2,
+.sobre-conteudo h2,
+.contato-conteudo h2 {
+    margin: 8px 0 16px;
+
+    color: var(--cor-principal);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.secao-cabecalho h2 span,
+.sobre-conteudo h2 span,
+.contato-conteudo h2 span {
+    color: var(--cor-secundaria);
+}
+
+.secao-cabecalho > p {
+    max-width: 680px;
+    margin: 0 auto;
+
+    color: var(--cor-texto);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   5. PÁGINA INICIAL — HERO
+========================================================= */
+
+.hero {
+    padding: 75px 5% 85px;
+    background: linear-gradient(
+        135deg,
+        #f7f2ed 0%,
+        #ffffff 100%
+    );
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 60px;
+
+    max-width: var(--largura-maxima);
+    margin: 0 auto;
+}
+
+.hero-conteudo {
+    min-width: 0;
+}
+
+.hero-conteudo h1 {
+    margin: 15px 0 22px;
+
+    color: var(--cor-principal);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 4.5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.12;
+}
+
+.hero-conteudo h1 span {
+    display: block;
+    color: var(--cor-secundaria);
+}
+
+.hero-conteudo > p {
+    max-width: 560px;
+    margin-bottom: 25px;
+
+    color: #666666;
+    font-size: 1.08rem;
+    line-height: 1.85;
+}
+
+.hero-botoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hero-informacoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+.hero-informacao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--cor-texto);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.hero-icone {
+    color: var(--cor-secundaria);
+    font-size: 1.35rem;
+}
+
+
+/* Imagem da apresentação */
+
+.hero-imagem-container {
+    position: relative;
+    min-width: 0;
+}
+
+.hero-imagem {
+    display: block;
+    width: 100%;
+    height: 470px;
+
+    border-radius: 22px;
+    background-color: var(--cor-fundo-bege);
+
+    box-shadow: var(--sombra-media);
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-cartao {
+    position: absolute;
+    right: -18px;
+    bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    max-width: 320px;
+    padding: 18px;
+
+    border-radius: 14px;
+    background-color: var(--cor-branco);
+
+    box-shadow: var(--sombra-media);
+}
+
+.hero-cartao-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+    background-color: var(--cor-fundo-bege);
+
+    color: var(--cor-secundaria);
+    font-size: 1.7rem;
+}
+
+.hero-cartao strong {
+    display: block;
+    color: var(--cor-principal);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.hero-cartao p {
+    margin-top: 4px;
+    color: var(--cor-texto);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   6. SERVIÇOS
+========================================================= */
 
 .servicos {
-    padding: 70px 60px;
-    background-color: white;
-}
-
-.servicos > h2 {
+    padding: 80px 5%;
+    background-color: var(--cor-branco);
     text-align: center;
-
-    margin: 0 0 45px;
-
-    color: #168c78;
-    font-size: 32px;
 }
-
-
-/* CONTAINER DOS CARDS */
 
 .servicos-container {
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 28px;
 
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 30px;
-
-    max-width: 1100px;
-
+    width: 100%;
+    max-width: var(--largura-maxima);
     margin: 0 auto;
 }
 
 
-/* CARD */
+/* Cartão individual */
 
-.servico {
-    position: relative;
+.servico-card {
+    display: flex;
+    flex-direction: column;
 
-    padding: 30px 25px;
+    min-width: 0;
+    overflow: hidden;
 
-    background-color: #ffffff;
+    border: 1px solid rgba(74, 59, 50, 0.07);
+    border-radius: var(--borda-arredondada);
 
-    border-radius: 18px;
+    background-color: var(--cor-branco);
+    box-shadow: var(--sombra-suave);
 
-    text-align: center;
+    text-align: left;
 
-    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
-
-    transition: 0.3s ease;
+.servico-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-media);
 }
 
 
-/* BARRA DECORATIVA */
+/* Imagem do cartão */
 
-.servico::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
+.servico-imagem-container {
     width: 100%;
-    height: 5px;
+    height: 230px;
+    overflow: hidden;
+    flex-shrink: 0;
 
-    background: linear-gradient(
-        90deg,
-        #6b2c83,
-        #168c78
-    );
+    background-color: var(--cor-fundo-bege);
+}
 
-    border-radius: 18px 18px 0 0;
+.servico-imagem {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.4s ease;
+}
+
+.servico-card:hover .servico-imagem {
+    transform: scale(1.04);
 }
 
 
-/* EFEITO AO PASSAR O MOUSE */
+/* Conteúdo do cartão */
 
-.servico:hover {
-    transform: translateY(-8px);
+.servico-conteudo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.13);
+    padding: 23px;
 }
 
-
-/* TÍTULO DO SERVIÇO */
-
-.servico h3 {
-    margin-top: 10px;
+.servico-conteudo h3 {
     margin-bottom: 12px;
 
-    color: #6b2c83;
-
-    font-size: 21px;
+    color: var(--cor-principal);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    line-height: 1.4;
 }
 
+.servico-conteudo p {
+    flex-grow: 1;
+    margin-bottom: 18px;
 
-/* DESCRIÇÃO */
-
-.servico p {
-    margin: 0;
-
-    color: #666;
-
-    font-size: 15px;
-
-    line-height: 1.6;
+    color: var(--cor-texto);
+    font-size: 0.92rem;
+    line-height: 1.8;
 }
 
-/* =========================
-   RODAPÉ
-========================= */
+.servico-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 
-footer {
-    padding: 30px;
+    align-self: flex-start;
+    margin-top: auto;
 
-    background-color: #6b2c83;
+    color: var(--cor-secundaria);
+    font-size: 0.92rem;
+    font-weight: 800;
+}
 
-    color: white;
+.servico-link:hover {
+    color: var(--cor-principal);
+    gap: 10px;
+}
 
+.servicos-rodape {
+    margin-top: 40px;
     text-align: center;
 }
 
-footer p {
-    margin: 5px;
+.servicos-rodape p {
+    margin-bottom: 15px;
+    color: var(--cor-texto);
 }
 
 
-/* =========================
-   RESPONSIVIDADE
-========================= */
+/* =========================================================
+   7. GALERIA DE CUIDADOS
+========================================================= */
 
-/* TABLET */
+.galeria {
+    padding: 75px 5%;
+    background-color: var(--cor-fundo-bege);
+}
 
-@media (max-width: 800px) {
+.galeria .container {
+    width: 100%;
+    max-width: var(--largura-maxima);
+    margin: 0 auto;
+}
 
-    header {
-        padding: 20px 30px;
+.galeria .secao-cabecalho {
+    max-width: 760px;
+    margin: 0 auto 35px;
+}
 
-        flex-direction: column;
 
-        gap: 20px;
+/* Grade: três fotos por linha em computadores */
+
+.galeria-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 22px;
+
+    width: 100%;
+}
+
+
+/* Cartão da galeria */
+
+.galeria-item {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+
+    border: 1px solid rgba(74, 59, 50, 0.07);
+    border-radius: 14px;
+
+    background-color: var(--cor-branco);
+    box-shadow: var(--sombra-suave);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-media);
+}
+
+
+/*
+   CORREÇÃO PRINCIPAL:
+   As imagens da galeria têm largura limitada ao cartão
+   e altura fixa, evitando que ocupem a tela inteira.
+*/
+
+.galeria-item img {
+    display: block;
+
+    width: 100%;
+    height: 210px;
+    max-height: 210px;
+
+    object-fit: cover;
+    object-position: center;
+
+    background-color: #eee5dc;
+}
+
+
+/* Legendas */
+
+.galeria-item figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+    padding: 12px 10px;
+
+    color: var(--cor-principal);
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+/* Texto e botão depois das imagens */
+
+.galeria-rodape {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.galeria-rodape p {
+    margin-bottom: 18px;
+    color: var(--cor-texto);
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   8. SOBRE A CECÍLIA
+========================================================= */
+
+.sobre {
+    padding: 80px 5%;
+    background-color: var(--cor-branco);
+}
+
+.sobre-container {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: 55px;
+}
+
+.sobre-imagem-container {
+    min-width: 0;
+    overflow: hidden;
+
+    border-radius: 20px;
+    background-color: var(--cor-fundo-bege);
+    box-shadow: var(--sombra-suave);
+}
+
+.sobre-imagem {
+    display: block;
+
+    width: 100%;
+    height: 420px;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.sobre-conteudo {
+    min-width: 0;
+}
+
+.sobre-conteudo h2 {
+    margin: 10px 0 22px;
+}
+
+.sobre-conteudo p {
+    margin-bottom: 16px;
+
+    color: var(--cor-texto);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.sobre-conteudo .botao {
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   9. DIFERENCIAIS
+========================================================= */
+
+.diferenciais {
+    padding: 75px 5%;
+    background-color: #faf6f1;
+}
+
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+
+    max-width: var(--largura-maxima);
+    margin: 0 auto;
+}
+
+.diferencial-card {
+    padding: 30px 25px;
+
+    border: 1px solid rgba(74, 59, 50, 0.06);
+    border-radius: var(--borda-arredondada);
+
+    background-color: var(--cor-branco);
+    box-shadow: var(--sombra-suave);
+
+    text-align: center;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diferencial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-media);
+}
+
+.diferencial-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+    background-color: var(--cor-fundo-bege);
+
+    color: var(--cor-secundaria);
+    font-size: 1.8rem;
+}
+
+.diferencial-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--cor-principal);
+    font-size: 1.1rem;
+}
+
+.diferencial-card p {
+    color: var(--cor-texto);
+    font-size: 0.93rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   10. PERGUNTAS FREQUENTES — FAQ
+========================================================= */
+
+.faq {
+    padding: 80px 5%;
+    background-color: var(--cor-fundo);
+}
+
+.faq-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.faq .secao-cabecalho {
+    margin-bottom: 35px;
+}
+
+.faq-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.faq-item {
+    overflow: hidden;
+
+    border: 1px solid rgba(74, 59, 50, 0.08);
+    border-radius: 12px;
+
+    background-color: var(--cor-branco);
+    box-shadow: var(--sombra-suave);
+}
+
+.faq-item summary {
+    position: relative;
+
+    padding: 20px 48px 20px 22px;
+
+    color: var(--cor-principal);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.6;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+
+    color: var(--cor-secundaria);
+    font-size: 1.4rem;
+    font-weight: 400;
+
+    content: "+";
+    transform: translateY(-50%);
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item summary:hover {
+    background-color: #fcf8f4;
+}
+
+.faq-item summary:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: -3px;
+}
+
+.faq-item p {
+    padding: 0 22px 22px;
+
+    color: var(--cor-texto);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   11. CONTATO
+========================================================= */
+
+.contato {
+    padding: 80px 5%;
+    background-color: var(--cor-fundo-bege);
+}
+
+.contato-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 50px;
+}
+
+.contato-conteudo {
+    min-width: 0;
+}
+
+.contato-conteudo h2 {
+    margin: 10px 0 18px;
+}
+
+.contato-conteudo > p {
+    max-width: 520px;
+    margin-bottom: 25px;
+
+    color: var(--cor-texto);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.contato-conteudo .botao {
+    background-color: var(--cor-whatsapp);
+}
+
+.contato-conteudo .botao:hover {
+    background-color: var(--cor-whatsapp-hover);
+}
+
+
+/* Cartões de informações */
+
+.contato-informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contato-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    min-width: 0;
+    padding: 22px;
+
+    border: 1px solid rgba(74, 59, 50, 0.06);
+    border-radius: 13px;
+
+    background-color: var(--cor-branco);
+    box-shadow: var(--sombra-suave);
+}
+
+.contato-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+    background-color: var(--cor-fundo-bege);
+
+    color: var(--cor-secundaria);
+    font-size: 1.5rem;
+}
+
+.contato-card > div {
+    min-width: 0;
+}
+
+.contato-card h3 {
+    margin-bottom: 5px;
+
+    color: var(--cor-principal);
+    font-size: 1rem;
+}
+
+.contato-card p {
+    color: var(--cor-texto);
+    font-size: 0.93rem;
+    overflow-wrap: anywhere;
+}
+
+.contato-card a {
+    color: var(--cor-secundaria);
+    font-weight: 600;
+}
+
+.contato-card a:hover {
+    color: var(--cor-principal);
+    text-decoration: underline;
+}
+
+.contato-card .contato-observacao {
+    margin-top: 5px;
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   12. RODAPÉ
+========================================================= */
+
+.rodape {
+    padding: 45px 5% 25px;
+
+    background-color: #2c241e;
+    color: var(--cor-branco);
+    text-align: center;
+}
+
+.rodape-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.logo-rodape {
+    align-items: center;
+}
+
+.logo-rodape .logo-destaque {
+    color: var(--cor-branco);
+}
+
+.logo-rodape .logo-subtitulo {
+    color: #d1b9a5;
+}
+
+.rodape-container > p {
+    color: #d3c6bd;
+    font-size: 0.92rem;
+}
+
+.rodape-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin: 5px 0;
+}
+
+.rodape-links a {
+    color: var(--cor-branco);
+    font-size: 0.9rem;
+}
+
+.rodape-links a:hover {
+    color: #e4cbb7;
+}
+
+.rodape-copyright {
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    color: #bfaea3 !important;
+    font-size: 0.82rem !important;
+}
+
+
+/* =========================================================
+   13. BOTÃO FLUTUANTE DO WHATSAPP
+========================================================= */
+
+.whatsapp-flutuante {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+
+    background-color: var(--cor-whatsapp);
+    color: var(--cor-branco);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.20);
+}
+
+.whatsapp-flutuante:hover {
+    background-color: var(--cor-whatsapp-hover);
+    transform: translateY(-3px) scale(1.04);
+}
+
+.whatsapp-flutuante svg {
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+
+/* =========================================================
+   14. TABLETS E TELAS MÉDIAS
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .cabecalho {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .cabecalho-container {
+        gap: 16px;
+    }
+
+    .menu {
+        gap: 13px;
+    }
+
+    .menu a {
+        font-size: 0.84rem;
+    }
+
+    .botao-cabecalho {
+        padding: 9px 14px;
+        font-size: 0.8rem;
+    }
+
+    .hero-container {
+        gap: 35px;
+    }
+
+    .hero-imagem {
+        height: 400px;
     }
 
     .servicos-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
     }
 
-    .hero {
-        padding: 40px 30px;
+    .galeria-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
     }
 
-    .hero h2 {
-        font-size: 34px;
+    .galeria-item img {
+        height: 190px;
+        max-height: 190px;
+    }
+
+    .sobre-container {
+        gap: 35px;
+    }
+
+    .sobre-imagem {
+        height: 370px;
+    }
+
+    .contato-container {
+        gap: 30px;
     }
 
 }
 
 
-/* CELULAR */
+/* =========================================================
+   15. TABLETS MENORES
+========================================================= */
 
-@media (max-width: 550px) {
+@media (max-width: 800px) {
 
-    header {
-        padding: 20px;
-    }
-
-    nav {
-        gap: 15px;
-
+    .cabecalho-container {
         flex-wrap: wrap;
-
-        justify-content: center;
+        justify-content: space-between;
     }
 
-    nav a {
-        font-size: 14px;
+    .menu {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 18px;
     }
 
     .hero {
-        padding: 40px 20px;
+        padding-top: 55px;
+        padding-bottom: 65px;
+    }
 
+    .hero-container {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        gap: 25px;
+    }
+
+    .hero-conteudo h1 {
+        font-size: clamp(2.1rem, 5vw, 3rem);
+    }
+
+    .hero-imagem {
+        height: 350px;
+    }
+
+    .hero-cartao {
+        right: -8px;
+        bottom: 15px;
+        max-width: 270px;
+        padding: 13px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .galeria-item img {
+        height: 200px;
+        max-height: 200px;
+    }
+
+    .sobre-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .sobre-imagem-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .sobre-imagem {
+        height: 350px;
+    }
+
+    .sobre-conteudo {
+        max-width: 700px;
+        margin: 0 auto;
         text-align: center;
     }
 
-    .hero h2 {
-        font-size: 30px;
+    .diferenciais-grid {
+        gap: 16px;
     }
 
-    .hero p {
-        font-size: 16px;
+    .diferencial-card {
+        padding: 25px 17px;
     }
+
+    .contato-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .contato-conteudo {
+        text-align: center;
+    }
+
+    .contato-conteudo > p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .contato-informacoes {
+        width: 100%;
+        max-width: 650px;
+        margin: 0 auto;
+    }
+
+}
+
+
+/* =========================================================
+   16. CELULARES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    html {
+        scroll-padding-top: 130px;
+    }
+
+    section {
+        scroll-margin-top: 125px;
+    }
+
+    .cabecalho {
+        padding: 12px 5%;
+    }
+
+    .cabecalho-container {
+        gap: 12px;
+    }
+
+    .logo-destaque {
+        font-size: 1.45rem;
+    }
+
+    .logo-subtitulo {
+        font-size: 0.6rem;
+        letter-spacing: 2.5px;
+    }
+
+    .botao-cabecalho {
+        min-height: 38px;
+        padding: 8px 12px;
+        font-size: 0.74rem;
+    }
+
+    .menu {
+        gap: 9px 15px;
+        padding-top: 4px;
+    }
+
+    .menu a {
+        font-size: 0.79rem;
+    }
+
+
+    /* Página inicial */
+
+    .hero {
+        padding: 45px 5% 55px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .hero-conteudo {
+        text-align: center;
+    }
+
+    .hero-conteudo h1 {
+        margin-top: 12px;
+        font-size: clamp(2.15rem, 9vw, 3rem);
+    }
+
+    .hero-conteudo > p {
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 0.98rem;
+    }
+
+    .hero-botoes {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .hero-botoes .botao {
+        width: 100%;
+    }
+
+    .hero-informacoes {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-informacao {
+        font-size: 0.78rem;
+    }
+
+    .hero-imagem {
+        height: 300px;
+        border-radius: 16px;
+    }
+
+    .hero-cartao {
+        right: 10px;
+        bottom: 12px;
+        left: 10px;
+
+        max-width: none;
+        padding: 12px;
+    }
+
+    .hero-cartao-icone {
+        width: 38px;
+        height: 38px;
+        font-size: 1.4rem;
+    }
+
+    .hero-cartao strong {
+        font-size: 0.82rem;
+    }
+
+    .hero-cartao p {
+        font-size: 0.73rem;
+    }
+
+
+    /* Títulos */
+
+    .secao-cabecalho {
+        margin-bottom: 28px;
+    }
+
+    .secao-cabecalho h2,
+    .sobre-conteudo h2,
+    .contato-conteudo h2 {
+        font-size: 1.85rem;
+    }
+
+    .secao-cabecalho > p {
+        font-size: 0.93rem;
+    }
+
+
+    /* Serviços */
 
     .servicos {
-        padding: 40px 20px;
+        padding: 55px 5%;
     }
 
     .servicos-container {
         grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .servico-imagem-container {
+        height: 230px;
+    }
+
+    .servico-conteudo {
+        padding: 20px;
+    }
+
+    .servico-conteudo h3 {
+        font-size: 1.15rem;
+    }
+
+    .servico-conteudo p {
+        font-size: 0.91rem;
+    }
+
+
+    /* GALERIA: imagens menores no celular */
+
+    .galeria {
+        padding: 50px 5%;
+    }
+
+    .galeria .secao-cabecalho {
+        margin-bottom: 25px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .galeria-item {
+        border-radius: 10px;
+    }
+
+    .galeria-item img {
+        display: block;
+        width: 100%;
+        height: 140px;
+        max-height: 140px;
+        object-fit: cover;
+    }
+
+    .galeria-item figcaption {
+        min-height: 45px;
+        padding: 9px 5px;
+        font-size: 0.73rem;
+        line-height: 1.4;
+    }
+
+    .galeria-rodape {
+        margin-top: 25px;
+    }
+
+    .galeria-rodape p {
+        font-size: 0.9rem;
+    }
+
+
+    /* Sobre */
+
+    .sobre {
+        padding: 55px 5%;
+    }
+
+    .sobre-imagem {
+        height: 280px;
+    }
+
+    .sobre-conteudo p {
+        font-size: 0.94rem;
+    }
+
+
+    /* Diferenciais */
+
+    .diferenciais {
+        padding: 55px 5%;
+    }
+
+    .diferenciais-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .diferencial-card {
+        padding: 24px 20px;
+    }
+
+
+    /* Perguntas frequentes */
+
+    .faq {
+        padding: 55px 5%;
+    }
+
+    .faq-item summary {
+        padding: 17px 42px 17px 16px;
+        font-size: 0.92rem;
+    }
+
+    .faq-item summary::after {
+        right: 15px;
+    }
+
+    .faq-item p {
+        padding: 0 16px 18px;
+        font-size: 0.9rem;
+    }
+
+
+    /* Contato */
+
+    .contato {
+        padding: 55px 5%;
+    }
+
+    .contato-container {
+        gap: 28px;
+    }
+
+    .contato-card {
+        gap: 12px;
+        padding: 17px;
+    }
+
+    .contato-icone {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+
+    .contato-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .contato-card p {
+        font-size: 0.87rem;
+    }
+
+
+    /* Rodapé */
+
+    .rodape {
+        padding: 35px 5% 20px;
+    }
+
+    .rodape-links {
+        gap: 12px 18px;
+    }
+
+    .rodape-links a {
+        font-size: 0.82rem;
+    }
+
+    .rodape-container > p {
+        font-size: 0.85rem;
+    }
+
+
+    /* WhatsApp flutuante */
+
+    .whatsapp-flutuante {
+        right: 15px;
+        bottom: 15px;
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .whatsapp-flutuante svg {
+        width: 25px;
+        height: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   17. CELULARES MUITO PEQUENOS
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .cabecalho-container {
+        gap: 8px;
+    }
+
+    .logo-destaque {
+        font-size: 1.3rem;
+    }
+
+    .botao-cabecalho {
+        padding: 7px 9px;
+        font-size: 0.68rem;
+    }
+
+    .menu {
+        gap: 8px 12px;
+    }
+
+    .menu a {
+        font-size: 0.74rem;
+    }
+
+    .hero-conteudo h1 {
+        font-size: 2rem;
+    }
+
+    .galeria-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .galeria-item img {
+        height: 190px;
+        max-height: 190px;
+    }
+
+    .galeria-item figcaption {
+        font-size: 0.85rem;
+    }
+
+}
+
+
+/* =========================================================
+   18. ACESSIBILIDADE
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 
 }
